@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App7"                   
+             xmlns:sfChat="clr-namespace:Syncfusion.XForms.Chat;assembly=Syncfusion.SfChat.XForms"
+             x:Class="App7.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:MessageConverter x:Key="MessageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <local:GettingStartedViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <sfChat:SfChat x:Name="sfChat" 
+                           CurrentUser="{Binding CurrentUser}"                                                    
+                           ItemsSource="{Binding MessageCollection }"  
+                           ItemsSourceConverter="{StaticResource MessageConverter}" />
+    </ContentPage.Content>
+</ContentPage>
+
